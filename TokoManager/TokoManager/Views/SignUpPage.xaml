@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TokoManager.Views.SignUpPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="emailForm" 
+                   Placeholder="Email" 
+                   Text="{Binding Email}" 
+                   Keyboard="Email"/>
+            <Entry x:Name="passwordForm" 
+                   Placeholder="Password" 
+                   Text="{Binding Password}"     
+                   IsPassword="True"/>
+            <Entry x:Name="confirmPasswordForm" 
+                   Placeholder="Re_Enter Password" 
+                   Text="{Binding ConfirmPassword}"     
+                   IsPassword="True" />
+            <Button x:Name="sigUup" 
+                    Text="SignUp" 
+                    Command="{Binding SignUpCommand}" 
+                    HorizontalOptions="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

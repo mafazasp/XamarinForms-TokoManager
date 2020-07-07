@@ -11,19 +11,14 @@ using TokoManager.ViewModels;
 namespace TokoManager.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class SignUpPage : ContentPage
     {
-        LoginVM loginVM;
-        public LoginPage()
+        SignUpVM signUpVM;
+        public SignUpPage()
         {
-            loginVM = new LoginVM();
             InitializeComponent();
-            BindingContext = loginVM;
-        }
-
-        async void signupbtn_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new SignUpPage());
+            signUpVM = new SignUpVM();
+            BindingContext = signUpVM;
         }
     }
 }
