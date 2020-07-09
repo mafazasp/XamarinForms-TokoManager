@@ -15,14 +15,14 @@ namespace TokoManager.ViewModels
         {
 
         }
-        private string email;
-        public string Email
+        private string username;
+        public string Username
         {
-            get { return email; }
+            get { return username; }
             set
             {
-                email = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Email"));
+                username = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Username"));
             }
         }
         private string password;
@@ -52,21 +52,21 @@ namespace TokoManager.ViewModels
 
         private async void Login()
         {
-            //null or empty field validation, check weather email and password is null or empty
+            //null or empty field validation, check weather username and password is null or empty
             
-            if (string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password))
-             await App.Current.MainPage.DisplayAlert("Empty Values", "Please enter Email and Password", "OK");
+            if (string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
+             await App.Current.MainPage.DisplayAlert("Empty Values", "Please enter Username and Password", "OK");
             else
             {
-                var user = await FirebaseHelper.GetUser(Email);
+                var user = await FirebaseHelper.GetUser(Username);
                 if(user!=null)
-                if (Email == user.Email && Security.Encrypt(Password) == user.Password)
+                if (Username == user.Username && Security.Encrypt(Password) == user.Password)
                 {
                 await  App.Current.MainPage.DisplayAlert("Login Success", "", "Ok");
-                 await App.Current.MainPage.Navigation.PushAsync(new WelcomePage(Email));
+                 await App.Current.MainPage.Navigation.PushAsync(new WelcomePage(Username));
                 }
                 else
-                await  App.Current.MainPage.DisplayAlert("Login Fail", "Please enter correct Email and Password", "OK");
+                await  App.Current.MainPage.DisplayAlert("Login Fail", "Please enter correct Username and Password", "OK");
                 else
                     await App.Current.MainPage.DisplayAlert("Login Fail", "User not found", "OK");
             }

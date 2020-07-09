@@ -9,14 +9,14 @@ namespace TokoManager.ViewModels
 {
    public class SignUpVM: INotifyPropertyChanged
     {
-        private string email;
-        public string Email
+        private string username;
+        public string Username
         {
-            get { return email; }
+            get { return username; }
             set
             {
-                email = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Email"));
+                username = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Username"));
             }
         }
         private string password;
@@ -58,15 +58,15 @@ namespace TokoManager.ViewModels
         }
         private async void SignUp()
         {
-            if (string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password))
-                await App.Current.MainPage.DisplayAlert("Empty Values", "Please enter Email and Password", "OK");
+            if (string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
+                await App.Current.MainPage.DisplayAlert("Empty Values", "Please enter Username and Password", "OK");
             else
             {
-                var user = await FirebaseHelper.AddUser(Email,Security.Encrypt(Password));
+                var user = await FirebaseHelper.AddUser(Username,Security.Encrypt(Password));
                 if (user)
                 {
                     await App.Current.MainPage.DisplayAlert("SignUp Success", "", "Ok");
-                    await App.Current.MainPage.Navigation.PushAsync(new WelcomePage(Email));
+                    await App.Current.MainPage.Navigation.PushAsync(new WelcomePage(Username));
                 }
                 else
                     await App.Current.MainPage.DisplayAlert("Error", "SignUp Fail", "OK");

@@ -14,10 +14,10 @@ namespace TokoManager.Views
 	public partial class WelcomePage : ContentPage
 	{
         WelcomeVM welcomeVM;
-		public WelcomePage (string email)
+		public WelcomePage (string username)
 		{
 			InitializeComponent();
-			welcomeVM = new WelcomeVM(email);
+			welcomeVM = new WelcomeVM(username);
             BindingContext = welcomeVM;
 		}
 	}

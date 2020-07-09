@@ -25,7 +25,7 @@ namespace TokoManager.ViewModels
                 .Select(item =>
                 new User
                 {
-                    Email = item.Object.Email,
+                    Username = item.Object.Username,
                     Password = item.Object.Password
                 }).ToList();
                 return users;
@@ -38,7 +38,7 @@ namespace TokoManager.ViewModels
         }
 
         //Read     
-        public static async Task<User> GetUser(string email)
+        public static async Task<User> GetUser(string username)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace TokoManager.ViewModels
                 .Child("Users")
                 .OnceAsync<User>();
                 return allUsers
-                    .Where(a => a.Email == email)
+                    .Where(a => a.Username == username)
                     .FirstOrDefault();
             }
             catch (Exception e)
@@ -58,7 +58,7 @@ namespace TokoManager.ViewModels
         }
 
         //Inser a user    
-        public static async Task<bool> AddUser(string email, string password)
+        public static async Task<bool> AddUser(string username, string password)
         {
             try
             {
@@ -66,7 +66,7 @@ namespace TokoManager.ViewModels
 
                 await firebase
                 .Child("Users")
-                .PostAsync(new User() { Email = email, Password = password });
+                .PostAsync(new User() { Username = username, Password = password });
                 return true;
             }
             catch (Exception e)
@@ -77,7 +77,7 @@ namespace TokoManager.ViewModels
         }
 
         //Update     
-        public static async Task<bool> UpdateUser(string email, string password)
+        public static async Task<bool> UpdateUser(string username, string password)
         {
             try
             {
@@ -86,12 +86,12 @@ namespace TokoManager.ViewModels
                 var toUpdateUser = (await firebase
                 .Child("Users")
                 .OnceAsync<User>())
-                .Where(a => a.Object.Email == email)
+                .Where(a => a.Object.Username == username)
                 .FirstOrDefault();
                 await firebase
                 .Child("Users")
                 .Child(toUpdateUser.Key)
-                .PutAsync(new User() { Email = email, Password = password });
+                .PutAsync(new User() { Username = username, Password = password });
                 return true;
             }
             catch (Exception e)
@@ -102,7 +102,7 @@ namespace TokoManager.ViewModels
         }
 
         //Delete User    
-        public static async Task<bool> DeleteUser(string email)
+        public static async Task<bool> DeleteUser(string username)
         {
             try
             {
@@ -111,7 +111,7 @@ namespace TokoManager.ViewModels
                 var toDeletePerson = (await firebase
                 .Child("Users")
                 .OnceAsync<User>())
-                .Where(a => a.Object.Email == email)
+                .Where(a => a.Object.Username == username)
                 .FirstOrDefault();
                 await firebase
                     .Child("Users")

@@ -6,7 +6,7 @@
              NavigationPage.HasBackButton="False">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding Email, StringFormat='Welcome {0}'}" Margin="10"/>
+            <Label Text="{Binding Username, StringFormat='Welcome {0}'}" Margin="10"/>
             <Entry Text="{Binding Password}" IsPassword="True" Margin="5,5" Placeholder="Enter new password"/>
             <Button x:Name="updatebtn" Text="Change Password" Command="{Binding UpdateCommand}" />
             <Button x:Name="deletebtn" Text="Delete Account" Command="{Binding DeleteCommand}"/>

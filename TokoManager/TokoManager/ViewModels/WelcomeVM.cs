@@ -9,16 +9,16 @@ namespace TokoManager.ViewModels
 {
    public class WelcomeVM: INotifyPropertyChanged
     {
-        public WelcomeVM(string email2)
+        public WelcomeVM(string username2)
         {
-            Email = email2;
+            Username = username2;
         }
-        private string email;
+        private string username;
 
-        public string Email
+        public string Username
         {
-            get { return email; }
-            set { email = value; }
+            get { return username; }
+            set { username = value; }
         }
         private string password;
 
@@ -58,7 +58,7 @@ namespace TokoManager.ViewModels
             {
                 if (!string.IsNullOrEmpty(Password))
                 {
-                    var isupdate = await FirebaseHelper.UpdateUser(Email, Password);
+                    var isupdate = await FirebaseHelper.UpdateUser(Username, Password);
                     if (isupdate)
                         await App.Current.MainPage.DisplayAlert("Update Success", "", "Ok");
                     else
@@ -78,7 +78,7 @@ namespace TokoManager.ViewModels
         {
             try
             {
-                var isdelete = await FirebaseHelper.DeleteUser(Email);
+                var isdelete = await FirebaseHelper.DeleteUser(Username);
                 if (isdelete)
                     await App.Current.MainPage.Navigation.PopAsync();
                 else
