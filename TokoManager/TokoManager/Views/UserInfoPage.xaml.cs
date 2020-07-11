@@ -11,14 +11,14 @@ using TokoManager.ViewModels;
 namespace TokoManager.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class WelcomePage : ContentPage
+	public partial class UserPage : ContentPage
 	{
-        WelcomeVM welcomeVM;
-		public WelcomePage (string username)
+        UserInfoVM userInfoVM;
+		public UserPage (string username)
 		{
 			InitializeComponent();
-			welcomeVM = new WelcomeVM(username);
-            BindingContext = welcomeVM;
+			userInfoVM = new UserInfoVM(username);
+            BindingContext = userInfoVM;
 		}
 	}
 }

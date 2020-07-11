@@ -7,9 +7,9 @@ using Xamarin.Forms;
 
 namespace TokoManager.ViewModels
 {
-   public class WelcomeVM: INotifyPropertyChanged
+   public class UserInfoVM: INotifyPropertyChanged
     {
-        public WelcomeVM(string username2)
+        public UserInfoVM(string username2)
         {
             Username = username2;
         }

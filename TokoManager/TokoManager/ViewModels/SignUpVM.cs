@@ -66,7 +66,7 @@ namespace TokoManager.ViewModels
                 if (user)
                 {
                     await App.Current.MainPage.DisplayAlert("SignUp Success", "", "Ok");
-                    await App.Current.MainPage.Navigation.PushAsync(new WelcomePage(Username));
+                    await App.Current.MainPage.Navigation.PushAsync(new UserPage(Username));
                 }
                 else
                     await App.Current.MainPage.DisplayAlert("Error", "SignUp Fail", "OK");

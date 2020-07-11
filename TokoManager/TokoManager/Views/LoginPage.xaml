@@ -6,7 +6,8 @@
              mc:Ignorable="d"
              x:Class="TokoManager.Views.LoginPage">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout HorizontalOptions="Center"
+                     VerticalOptions="Center">
             <Entry x:Name = "Username" 
                    Placeholder = "Username" 
                    Text="{Binding Username}"
@@ -16,13 +17,14 @@
                    Placeholder = "Password"
                    HeightRequest = "40"
                    IsPassword = "True"/>
-            <Button x:Name= "loginbtn" 
-                    Text = "Login " 
-                    Command="{Binding LoginCommand}"
-                    HorizontalOptions = "FillAndExpand"/>
-            <Button x:Name="signupbtn" 
-                    Text="SignUp" 
-                    Clicked="signupbtn_Clicked"/>
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name= "loginbtn" 
+                        Text = "Login " 
+                        Command="{Binding LoginCommand}"/>
+                <Button x:Name="signupbtn" 
+                        Text="SignUp" 
+                        Clicked="signupbtn_Clicked"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

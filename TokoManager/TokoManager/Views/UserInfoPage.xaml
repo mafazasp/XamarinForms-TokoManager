@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TokoManager.Views.WelcomePage"
-             Title="Welcom Page"
+             x:Class="TokoManager.Views.UserPage"
+             Title="User Info"
              NavigationPage.HasBackButton="False">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding Username, StringFormat='Welcome {0}'}" Margin="10"/>
+            <Label Text="{Binding Username, StringFormat='User {0}'}" Margin="10"/>
             <Entry Text="{Binding Password}" IsPassword="True" Margin="5,5" Placeholder="Enter new password"/>
             <Button x:Name="updatebtn" Text="Change Password" Command="{Binding UpdateCommand}" />
             <Button x:Name="deletebtn" Text="Delete Account" Command="{Binding DeleteCommand}"/>
