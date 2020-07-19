@@ -63,7 +63,7 @@ namespace TokoManager.ViewModels
                 if (Username == user.Username && Security.Encrypt(Password) == user.Password)
                 {
                 await  App.Current.MainPage.DisplayAlert("Login Success", "", "Ok");
-                 await App.Current.MainPage.Navigation.PushAsync(new UserPage(Username));
+                 await App.Current.MainPage.Navigation.PushAsync(new HomePage(Username));
                 }
                 else
                 await  App.Current.MainPage.DisplayAlert("Login Fail", "Please enter correct Username and Password", "OK");
