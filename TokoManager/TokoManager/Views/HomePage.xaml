@@ -7,10 +7,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="This is Home Page!"/>
-            <Label Text="{Binding Username, StringFormat='User {0}'}" Margin="10"/>
-            <Entry Text="{Binding Password}" IsPassword="True" Margin="5,5" Placeholder="Enter new password"/>
-            <Button x:Name="updatebtn" Text="Change Password" Command="{Binding UpdateCommand}" />
-            <Button x:Name="deletebtn" Text="Delete Account" Command="{Binding DeleteCommand}"/>
+            <Button x:Name="userpagebtn" Text="User Options" Command="{Binding ToUserPageCommand}" />
             <Button x:Name="logoutbtn" Text="Logout" Command="{Binding LogoutCommand}"/>
         </StackLayout>
     </ContentPage.Content>

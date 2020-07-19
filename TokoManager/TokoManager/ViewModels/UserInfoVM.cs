@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Text;
 using Xamarin.Forms;
+using TokoManager.Views;
 
 namespace TokoManager.ViewModels
 {
@@ -36,6 +37,10 @@ namespace TokoManager.ViewModels
             get { return new Command(Update); }
         }
 
+        public Command ToUserPageCommand
+        {
+            get { return new Command(ToUserPage); }
+        }
         public Command DeleteCommand
         {
             get { return new Command(Delete); }
@@ -58,7 +63,7 @@ namespace TokoManager.ViewModels
             {
                 if (!string.IsNullOrEmpty(Password))
                 {
-                    var isupdate = await FirebaseHelper.UpdateUser(Username, Password);
+                    var isupdate = await FirebaseHelper.UpdateUser(Username, Security.Encrypt(Password));
                     if (isupdate)
                         await App.Current.MainPage.DisplayAlert("Update Success", "", "Ok");
                     else
@@ -89,6 +94,11 @@ namespace TokoManager.ViewModels
 
                 Debug.WriteLine($"Error:{e}");
             }
+        }
+
+        private async void ToUserPage()
+        {
+            await App.Current.MainPage.Navigation.PushAsync(new UserPage(Username));
         }
     }
 }

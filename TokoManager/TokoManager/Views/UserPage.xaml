@@ -10,7 +10,7 @@
             <Entry Text="{Binding Password}" IsPassword="True" Margin="5,5" Placeholder="Enter new password"/>
             <Button x:Name="updatebtn" Text="Change Password" Command="{Binding UpdateCommand}" />
             <Button x:Name="deletebtn" Text="Delete Account" Command="{Binding DeleteCommand}"/>
-            <Button x:Name="logoutbtn" Text="Logout" Command="{Binding LogoutCommand}"/>
+            <Button x:Name="logoutbtn" Text="Back" Command="{Binding LogoutCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
