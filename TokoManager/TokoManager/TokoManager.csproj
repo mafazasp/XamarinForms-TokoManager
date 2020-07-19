@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\UserInfoPage.xaml.cs">
-      <DependentUpon>UserInfoPage.xaml</DependentUpon>
+    <Compile Update="Views\UserPage.xaml.cs">
+      <DependentUpon>UserPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
