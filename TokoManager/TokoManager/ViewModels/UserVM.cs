@@ -10,7 +10,7 @@ using TokoManager.Models;
 
 namespace TokoManager.ViewModels
 {
-    class FirebaseHelper
+    class UserVM
     {
       
         public static FirebaseClient firebase = new FirebaseClient("https://tokomanager-test.firebaseio.com/");
@@ -56,8 +56,7 @@ namespace TokoManager.ViewModels
                 return null;
             }
         }
-
-        //Inser a user    
+  
         public static async Task<bool> AddUser(string username, string password)
         {
             try
@@ -75,8 +74,7 @@ namespace TokoManager.ViewModels
                 return false;
             }
         }
-
-        //Update     
+    
         public static async Task<bool> UpdateUser(string username, string password)
         {
             try
@@ -88,6 +86,7 @@ namespace TokoManager.ViewModels
                 .OnceAsync<User>())
                 .Where(a => a.Object.Username == username)
                 .FirstOrDefault();
+
                 await firebase
                 .Child("Users")
                 .Child(toUpdateUser.Key)

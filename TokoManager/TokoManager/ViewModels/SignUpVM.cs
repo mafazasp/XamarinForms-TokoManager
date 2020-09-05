@@ -62,7 +62,7 @@ namespace TokoManager.ViewModels
                 await App.Current.MainPage.DisplayAlert("Empty Values", "Please enter Username and Password", "OK");
             else
             {
-                var user = await FirebaseHelper.AddUser(Username,Security.Encrypt(Password));
+                var user = await UserVM.AddUser(Username,Security.Encrypt(Password));
                 if (user)
                 {
                     await App.Current.MainPage.DisplayAlert("SignUp Success", "", "Ok");

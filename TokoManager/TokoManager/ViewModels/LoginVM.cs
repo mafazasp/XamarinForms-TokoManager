@@ -58,7 +58,7 @@ namespace TokoManager.ViewModels
              await App.Current.MainPage.DisplayAlert("Empty Values", "Please enter Username and Password", "OK");
             else
             {
-                var user = await FirebaseHelper.GetUser(Username);
+                var user = await UserVM.GetUser(Username);
                 if(user!=null)
                 if (Username == user.Username && Security.Encrypt(Password) == user.Password)
                 {

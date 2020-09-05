@@ -63,7 +63,7 @@ namespace TokoManager.ViewModels
             {
                 if (!string.IsNullOrEmpty(Password))
                 {
-                    var isupdate = await FirebaseHelper.UpdateUser(Username, Security.Encrypt(Password));
+                    var isupdate = await UserVM.UpdateUser(Username, Security.Encrypt(Password));
                     if (isupdate)
                         await App.Current.MainPage.DisplayAlert("Update Success", "", "Ok");
                     else
@@ -83,7 +83,7 @@ namespace TokoManager.ViewModels
         {
             try
             {
-                var isdelete = await FirebaseHelper.DeleteUser(Username);
+                var isdelete = await UserVM.DeleteUser(Username);
                 if (isdelete)
                     await App.Current.MainPage.Navigation.PopAsync();
                 else
