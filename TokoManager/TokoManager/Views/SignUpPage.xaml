@@ -7,6 +7,7 @@
              x:Class="TokoManager.Views.SignUpPage">
     <ContentPage.Content>
         <StackLayout>
+            <ListView x:Name="signUpForm"></ListView>
             <Entry x:Name="usernameForm" 
                    Placeholder="Username" 
                    Text="{Binding Username}"/>
