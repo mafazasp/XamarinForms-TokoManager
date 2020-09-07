@@ -21,16 +21,20 @@ namespace TokoManager.Views
             
             InitializeComponent();
             signUpVM = new SignUpVM();
-            BindingContext = signUpVM;
+            //BindingContext = signUpVM;
 
-            var userProperties = new List<String>();
-            Type type = typeof(User);
+            Type type = typeof(UserDetail);
             PropertyInfo[] propertyinfo = type.GetProperties();
-            foreach(PropertyInfo info in propertyinfo)
+            var userProperties = new List<Property>();
+            int index = 0;
+            foreach (PropertyInfo info in propertyinfo)
             {
-                userProperties.Add(info.Name);
+                userProperties.Insert(index, new Property { Name = info.Name, Type = info.PropertyType});
+                index++;
             }
-            signUpForm.ItemsSource= userProperties;
+
+
+                detailForm.ItemsSource= userProperties;
         }
     }
 }
